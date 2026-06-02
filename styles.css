@@ -512,6 +512,35 @@ body.is-hint-illuminated .hint-blackout {
   letter-spacing: 0.16em;
 }
 
+.access-message__title,
+.access-message__detail {
+  display: block;
+}
+
+.access-message__title {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+.access-message__detail {
+  margin-top: 18px;
+  font-size: clamp(0.86rem, 2vw, 1.15rem);
+}
+
+.transmission-button {
+  margin-top: 22px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.12em;
+}
+
+.transmission-button:hover,
+.transmission-button:focus-visible {
+  text-shadow: 0 0 12px rgb(255 255 255 / 80%);
+}
+
 @keyframes terminal-cursor {
   50% {
     caret-color: transparent;
