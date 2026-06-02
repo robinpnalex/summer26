@@ -32,6 +32,7 @@ const terminalPrompt = document.querySelector("#terminal-prompt");
 const terminalStatus = document.querySelector("#terminal-status");
 const passwordHint = document.querySelector("#password-hint");
 const accessMessage = document.querySelector("#access-message");
+const transmissionButton = document.querySelector("#transmission-button");
 let blackoutTimer;
 let caveTimer;
 let flashlightX = -200;
@@ -299,11 +300,12 @@ caveTerminal.addEventListener("submit", (event) => {
     terminalInput.value = "";
     terminalInput.placeholder = "";
     terminalInput.disabled = true;
-    terminalPrompt.textContent = "ACCESS GRANTED";
+    caveTerminal.hidden = true;
     terminalStatus.hidden = true;
     passwordHint.hidden = true;
     document.body.classList.remove("is-hint-illuminated");
     accessMessage.hidden = false;
+    transmissionButton.hidden = false;
     return;
   }
 
@@ -325,6 +327,10 @@ caveTerminal.addEventListener("submit", (event) => {
   warningLineOne.hidden = true;
   warningLineTwo.hidden = true;
   terminalInput.focus();
+});
+
+transmissionButton.addEventListener("click", () => {
+  window.open("https://www.youtube.com/watch?v=cErgMJSgpv0", "_blank", "noopener,noreferrer");
 });
 
 function revealBatman() {
