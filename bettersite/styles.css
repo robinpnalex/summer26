@@ -361,6 +361,10 @@ body.is-cave-visible .ascii-cave {
   margin-top: 20px;
 }
 
+.cave-terminal[hidden] {
+  display: none;
+}
+
 .terminal-prompt {
   font: inherit;
 }
@@ -383,6 +387,19 @@ body.is-cave-visible .ascii-cave {
   animation: terminal-cursor 900ms step-end infinite;
 }
 
+.cave-warning .terminal-status,
+.cave-warning .password-hint,
+.cave-warning .access-message {
+  margin-top: 20px;
+  font-size: clamp(0.72rem, 1.7vw, 1rem);
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.cave-warning .access-message {
+  letter-spacing: 0.16em;
+}
+
 @keyframes terminal-cursor {
   50% {
     caret-color: transparent;
@@ -391,22 +408,29 @@ body.is-cave-visible .ascii-cave {
 
 body.is-warning-visible .cave-warning {
   opacity: 1;
-  animation: warning-strobe 850ms steps(2, end) infinite;
+  animation: terminal-flicker 6200ms linear infinite;
   pointer-events: auto;
 }
 
-@keyframes warning-strobe {
+@keyframes terminal-flicker {
   0%,
+  18%,
+  20%,
+  52%,
+  54%,
   100% {
-    background: #000;
-    color: #fff;
-    box-shadow: 0 0 20px rgb(255 255 255 / 35%);
+    opacity: 1;
+    box-shadow: 0 0 18px rgb(255 255 255 / 22%);
   }
 
-  50% {
-    background: #fff;
-    color: #000;
-    box-shadow: 0 0 42px rgb(255 255 255 / 85%);
+  19% {
+    opacity: 0.88;
+    box-shadow: 0 0 24px rgb(255 255 255 / 34%);
+  }
+
+  53% {
+    opacity: 0.94;
+    box-shadow: 0 0 14px rgb(255 255 255 / 16%);
   }
 }
 
