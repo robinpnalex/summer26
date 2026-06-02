@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal portfolio of Robin Alex" />
+    <title>Robin Alex</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main aria-label="Portfolio">
+      <div class="cloud-layer" aria-hidden="true">
+        <pre class="ascii-cloud ascii-cloud--one">
+          .--.
+       .-(    ).
+      (___.__)__)
+        </pre>
+        <pre class="ascii-cloud ascii-cloud--two">
+             .-~~-.
+         .-~~      ~~-.      .--.
+        (              )_.--(    ).
+         `--..________..'    `--'
+        </pre>
+        <pre class="ascii-cloud ascii-cloud--three">
+        _.-~~-._
+      .'        `.
+     (___..--..___)
+        </pre>
+        <pre class="ascii-cloud ascii-cloud--four">
+             .--.
+        _.-'(    `-._
+      .'              `.
+     (____.--.____.--.___)
+        </pre>
+        <pre class="ascii-cloud ascii-cloud--five">
+          _.._
+      .-''    ``-.
+     (__.--..--.__)
+        </pre>
+        <pre class="ascii-cloud ascii-cloud--six">
+                 .-~~-.
+           _..--(      )--.._
+        .-'                   `-.
+       (_____.---._____.---._____)
+        </pre>
+        <pre
+          class="ascii-cloud ascii-cloud--bat"
+          id="storm-cloud"
+          role="button"
+          tabindex="0"
+          aria-controls="batman-mark"
+          aria-expanded="false"
+          aria-label="Reveal Batman"
+        >
+       .-#####-.
+   .-############-.
+  (################)
+   `-############-'
+        </pre>
+      </div>
+      <aside class="ascii-clock" aria-label="Current local time">
+        <div class="ascii-clock__rule" aria-hidden="true">======================================================================</div>
+        <pre class="ascii-clock__display" id="clock-display" aria-hidden="true"></pre>
+        <div class="ascii-clock__footer">
+          <span>IST</span>
+        </div>
+        <div class="ascii-clock__rule" aria-hidden="true">======================================================================</div>
+        <span class="sr-only" id="clock-readable" aria-live="polite"></span>
+      </aside>
+      <h1 class="site-name">
+        <span class="sr-only">Robin Alex</span>
+        <pre aria-hidden="true">
+######  ######  ######  ##  ##    ##          ####    ##      ######  ##  ##
+##  ##  ##  ##  ##  ##  ##  ####  ##         ##  ##   ##      ##       ####
+######  ##  ##  ######  ##  ## ## ##         ######   ##      ####      ##
+## ##   ##  ##  ##  ##  ##  ##  ####         ##  ##   ##      ##       ####
+##  ##  ######  ######  ##  ##    ##         ##  ##   ######  ######  ##  ##</pre>
+      </h1>
+      <figure class="ascii-cave" aria-label="A dark cave">
+        <pre aria-hidden="true">
+       _..---^^^---.._
+   _.-#################-._
+ .'#######################`.
+/##########..---..##########\
+|#######.-'       `-.#######|
+|#####.'             `.#####|
+|####/                 \####|
+|###|       .----.      |###|
+|###|     .'      `.    |###|
+|###|    /          \   |###|
+|###|   |            |  |###|
+|###|   |            |  |###|
+|###|   |            |  |###|
+|###|___|____________|__|###|
+`###########################'</pre>
+        <button class="cave-entrance" type="button" aria-label="Enter the Batcave"></button>
+      </figure>
+      <p class="cave-message">
+        <span class="sr-only">Find the cave</span>
+        <span aria-hidden="true">[ FIND THE CAVE ]</span>
+      </p>
+      <img
+        class="batman-mark"
+        id="batman-mark"
+        src="images/bman.svg"
+        alt="Batman"
+        aria-hidden="true"
+      />
+      <div class="blackout" aria-hidden="true"></div>
+      <section class="cave-warning" id="cave-warning" aria-hidden="true" aria-live="assertive">
+        <p>ARE YOU SURE YOU ARE READY</p>
+        <p>TO ENTER THE HOME OF THE BAT?</p>
+        <form class="cave-terminal" id="cave-terminal">
+          <label class="sr-only" id="terminal-label" for="terminal-input">
+            Type yes to continue
+          </label>
+          <span class="terminal-prompt" id="terminal-prompt" aria-hidden="true">&gt;</span>
+          <input
+            class="terminal-input"
+            id="terminal-input"
+            aria-labelledby="terminal-label"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
