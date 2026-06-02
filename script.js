@@ -330,7 +330,7 @@ caveTerminal.addEventListener("submit", (event) => {
 });
 
 transmissionButton.addEventListener("click", () => {
-  window.open("https://www.youtube.com/watch?v=cErgMJSgpv0", "_blank", "noopener,noreferrer");
+  window.open("https://www.youtube.com/watch?v=QDia3e12czc", "_blank", "noopener,noreferrer");
 });
 
 function revealBatman() {
