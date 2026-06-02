@@ -626,7 +626,11 @@ body.is-cave-visible .ascii-cave {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  body {
+    background: #000;
+  }
+
   main {
     display: none;
   }
