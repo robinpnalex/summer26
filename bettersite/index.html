@@ -78,7 +78,7 @@
       </h1>
       <figure class="ascii-cave" aria-label="A dark cave">
         <pre aria-hidden="true">
-       _..---^^^---.._
+       _..----^^---.._
    _.-#################-._
  .'#######################`.
 /##########..---..##########\
@@ -107,12 +107,17 @@
         aria-hidden="true"
       />
       <div class="blackout" aria-hidden="true"></div>
+      <div class="electric-disturbance" id="electric-disturbance" aria-hidden="true"></div>
+      <img class="riddler-flash" id="riddler-flash" src="images/Riddler.png" alt="" aria-hidden="true" />
+      <div class="hint-blackout" id="hint-blackout" aria-hidden="true"></div>
       <section class="cave-warning" id="cave-warning" aria-hidden="true" aria-live="assertive">
         <p class="sr-only" id="warning-readable">
           ARE YOU SURE YOU ARE READY TO ENTER THE HOME OF THE BAT?
         </p>
         <p class="warning-line" id="warning-line-one" aria-hidden="true"></p>
         <p class="warning-line" id="warning-line-two" aria-hidden="true"></p>
+        <p class="terminal-status" id="terminal-status" aria-live="polite" hidden></p>
+        <p class="password-hint" id="password-hint" aria-live="polite" hidden></p>
         <form class="cave-terminal" id="cave-terminal" hidden>
           <label class="sr-only" id="terminal-label" for="terminal-input">
             Type yes to continue
@@ -126,8 +131,6 @@
             spellcheck="false"
           />
         </form>
-        <p class="terminal-status" id="terminal-status" aria-live="polite" hidden></p>
-        <p class="password-hint" id="password-hint" aria-live="polite" hidden></p>
         <p class="access-message" id="access-message" hidden>
           ACCESS GRANTED<br />
           WELCOME TO THE BATCAVE
