@@ -331,6 +331,108 @@ body.is-cave-visible .ascii-cave {
   transition: opacity 1200ms ease;
 }
 
+.blackout::after {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  content: "";
+  opacity: 0;
+  transition: opacity 1800ms ease;
+}
+
+.electric-disturbance {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.electric-disturbance.is-active {
+  animation: electric-disturbance 2200ms steps(1, end) forwards;
+}
+
+.riddler-flash {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 6;
+  max-height: 90vh;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.riddler-flash.is-visible {
+  opacity: 1;
+}
+
+.riddler-flash--upper-left {
+  top: 24%;
+  left: 22%;
+  width: min(36vw, 260px);
+}
+
+.riddler-flash--lower-right {
+  top: 72%;
+  left: 76%;
+  width: min(54vw, 420px);
+}
+
+.riddler-flash--large {
+  top: 48%;
+  left: 43%;
+  width: min(92vw, 760px);
+}
+
+.riddler-flash--center {
+  width: min(68vw, 540px);
+}
+
+.hint-blackout {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: radial-gradient(
+    circle 105px at var(--flashlight-x, -200px) var(--flashlight-y, -200px),
+    transparent 0,
+    rgb(0 0 0 / 18%) 48%,
+    rgb(0 0 0 / 78%) 76%,
+    #000 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 700ms ease;
+}
+
+body.is-hint-illuminated .hint-blackout {
+  opacity: 1;
+}
+
+@keyframes electric-disturbance {
+  0%,
+  13%,
+  28%,
+  47%,
+  67%,
+  90% {
+    background: #fff;
+    opacity: 1;
+  }
+
+  7%,
+  20%,
+  39%,
+  58%,
+  82%,
+  94%,
+  100% {
+    background: #000;
+    opacity: 1;
+  }
+}
+
 .cave-warning {
   position: fixed;
   top: 50%;
@@ -388,11 +490,17 @@ body.is-cave-visible .ascii-cave {
 }
 
 .cave-warning .terminal-status,
-.cave-warning .password-hint,
 .cave-warning .access-message {
   margin-top: 20px;
   font-size: clamp(0.72rem, 1.7vw, 1rem);
   line-height: 1.5;
+  white-space: pre-line;
+}
+
+.cave-warning .password-hint {
+  margin-top: 20px;
+  font-size: clamp(1.15rem, 3vw, 2rem);
+  line-height: 1.7;
   white-space: pre-line;
 }
 
@@ -408,8 +516,17 @@ body.is-cave-visible .ascii-cave {
 
 body.is-warning-visible .cave-warning {
   opacity: 1;
-  animation: terminal-flicker 6200ms linear infinite;
+  animation: terminal-flicker 9000ms linear infinite;
   pointer-events: auto;
+}
+
+body.is-password-denied .blackout::after {
+  opacity: 1;
+}
+
+body.is-password-denied .cave-warning {
+  border-color: transparent;
+  background: transparent;
 }
 
 @keyframes terminal-flicker {
@@ -511,6 +628,10 @@ body.is-cave-visible .ascii-cave {
   }
 
   body.is-warning-visible .cave-warning {
+    animation: none;
+  }
+
+  .electric-disturbance.is-active {
     animation: none;
   }
 

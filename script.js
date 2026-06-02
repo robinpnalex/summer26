@@ -17,6 +17,9 @@ const readable = document.querySelector("#clock-readable");
 const stormCloud = document.querySelector("#storm-cloud");
 const batmanMark = document.querySelector("#batman-mark");
 const blackout = document.querySelector(".blackout");
+const electricDisturbance = document.querySelector("#electric-disturbance");
+const riddlerFlash = document.querySelector("#riddler-flash");
+const hintBlackout = document.querySelector("#hint-blackout");
 const caveEntrance = document.querySelector(".cave-entrance");
 const caveWarning = document.querySelector("#cave-warning");
 const caveTerminal = document.querySelector("#cave-terminal");
@@ -37,6 +40,8 @@ let pointerX = -200;
 let pointerY = -200;
 let isWarningTyping = false;
 let isHintRevealing = false;
+let terminalMode = "confirmation";
+let hasRevealedHint = false;
 
 function moveFlashlight(event) {
   pointerX = event.clientX;
@@ -50,6 +55,8 @@ function animateFlashlight() {
   flashlightY += (pointerY - flashlightY) * 0.075;
   blackout.style.setProperty("--flashlight-x", `${flashlightX}px`);
   blackout.style.setProperty("--flashlight-y", `${flashlightY}px`);
+  hintBlackout.style.setProperty("--flashlight-x", `${flashlightX}px`);
+  hintBlackout.style.setProperty("--flashlight-y", `${flashlightY}px`);
   window.requestAnimationFrame(animateFlashlight);
 }
 
@@ -93,7 +100,7 @@ function revealCaveWarning() {
     characterIndex += 1;
 
     if (characterIndex < text.length) {
-      window.setTimeout(typeNextCharacter, 42);
+      window.setTimeout(typeNextCharacter, 72);
       return;
     }
 
@@ -101,11 +108,11 @@ function revealCaveWarning() {
     characterIndex = 0;
 
     if (lineIndex < lines.length) {
-      window.setTimeout(typeNextCharacter, 320);
+      window.setTimeout(typeNextCharacter, 600);
       return;
     }
 
-    window.setTimeout(showTerminal, 420);
+    window.setTimeout(showTerminal, 650);
   }
 
   typeNextCharacter();
@@ -119,28 +126,48 @@ function revealPasswordHint() {
     "BUT NEVER HIS NAME.",
     "SEARCH NOT IN VAIN.",
   ];
-  const encryptedLines = [
-    "A H#RO M@Y HIDE HIS F@CE,",
-    "BUT N#VER HIS N@ME.",
-    "SE@RCH NOT IN V@IN.",
+  const revealSteps = [
+    ["A", 650],
+    ["HERO", 850],
+    ["MAY", 620],
+    ["HIDE", 760],
+    ["HIS", 620],
+    ["FACE,", 1250],
+    ["BUT", 720],
+    ["NEVER", 900],
+    ["HIS", 700],
+    ["N@M#", 620],
+    ["NAME.", 1400],
+    ["SEARCH", 900],
+    ["NOT", 720],
+    ["IN", 1800],
+    ["VAIN.", 1600],
   ];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let lineIndex = 0;
+  let stepIndex = 0;
 
   isHintRevealing = true;
+  terminalMode = "revealing-hint";
   terminalInput.value = "";
   terminalInput.placeholder = "";
   terminalInput.disabled = true;
-  terminalPrompt.textContent = "DECRYPTING...";
+  caveTerminal.hidden = true;
   terminalStatus.hidden = true;
   passwordHint.hidden = false;
   passwordHint.textContent = "DECRYPTING...";
 
   function finishReveal() {
     isHintRevealing = false;
+    hasRevealedHint = true;
+    terminalMode = "password";
+    terminalInput.type = "password";
+    terminalInput.autocomplete = "current-password";
     terminalInput.disabled = false;
+    caveTerminal.hidden = false;
+    terminalLabel.textContent = "Enter password";
     terminalPrompt.textContent = "PASSWORD >";
-    passwordHint.textContent = `HINT:\n${lines.join("\n")}`;
+    passwordHint.textContent = lines.join("\n");
+    document.body.classList.add("is-hint-illuminated");
     terminalInput.focus();
   }
 
@@ -149,24 +176,90 @@ function revealPasswordHint() {
     return;
   }
 
-  function revealNextLine() {
-    const revealedLines = lines.slice(0, lineIndex);
-    passwordHint.textContent = `DECRYPTING...\n${[...revealedLines, encryptedLines[lineIndex]].join("\n")}`;
+  function revealNextStep() {
+    const [text, delay] = revealSteps[stepIndex];
+    passwordHint.textContent = text;
+    stepIndex += 1;
 
-    window.setTimeout(() => {
-      passwordHint.textContent = `DECRYPTING...\n${lines.slice(0, lineIndex + 1).join("\n")}`;
-      lineIndex += 1;
+    if (stepIndex < revealSteps.length) {
+      window.setTimeout(revealNextStep, delay);
+      return;
+    }
 
-      if (lineIndex < lines.length) {
-        window.setTimeout(revealNextLine, 360);
-        return;
-      }
-
-      window.setTimeout(finishReveal, 420);
-    }, 240);
+    window.setTimeout(finishReveal, delay);
   }
 
-  window.setTimeout(revealNextLine, 420);
+  function startReveal() {
+    window.setTimeout(revealNextStep, 900);
+  }
+
+  function scheduleRiddlerGlimpse(pose, delay, duration) {
+    window.setTimeout(() => {
+      riddlerFlash.className = `riddler-flash riddler-flash--${pose} is-visible`;
+      window.setTimeout(() => {
+        riddlerFlash.className = "riddler-flash";
+      }, duration);
+    }, delay);
+  }
+
+  window.setTimeout(() => {
+    electricDisturbance.classList.add("is-active");
+    scheduleRiddlerGlimpse("upper-left", 286, 154);
+    scheduleRiddlerGlimpse("lower-right", 616, 242);
+    scheduleRiddlerGlimpse("large", 1034, 242);
+    scheduleRiddlerGlimpse("center", 1474, 330);
+    window.setTimeout(() => {
+      electricDisturbance.classList.remove("is-active");
+      window.setTimeout(startReveal, 180);
+    }, 2200);
+  }, 1800);
+}
+
+function rejectPassword() {
+  const statusLines = ["ACCESS DENIED", "DECRYPTING...", "CLUE AVAILABLE", "TYPE HINT TO DECRYPT"];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let lineIndex = 0;
+
+  terminalMode = "denied";
+  terminalInput.value = "";
+  terminalInput.placeholder = "";
+  terminalInput.disabled = true;
+  caveTerminal.hidden = true;
+  passwordHint.hidden = true;
+  terminalStatus.textContent = "";
+  terminalStatus.hidden = false;
+  document.body.classList.add("is-password-denied");
+
+  function offerHintCommand() {
+    terminalMode = "hint-command";
+    terminalInput.type = "text";
+    terminalInput.autocomplete = "off";
+    terminalInput.disabled = false;
+    caveTerminal.hidden = false;
+    terminalLabel.textContent = "Type hint to decrypt the clue";
+    terminalPrompt.textContent = "COMMAND >";
+    terminalInput.focus();
+  }
+
+  if (reducedMotion) {
+    terminalStatus.textContent = statusLines.join("\n");
+    offerHintCommand();
+    return;
+  }
+
+  function showNextStatusLine() {
+    terminalStatus.textContent = statusLines.slice(0, lineIndex + 1).join("\n");
+    lineIndex += 1;
+
+    if (lineIndex < statusLines.length) {
+      window.setTimeout(showNextStatusLine, 950);
+      return;
+    }
+
+    window.setTimeout(offerHintCommand, 750);
+  }
+
+  window.setTimeout(showNextStatusLine, 900);
 }
 
 caveTerminal.addEventListener("submit", (event) => {
@@ -176,32 +269,45 @@ caveTerminal.addEventListener("submit", (event) => {
     return;
   }
 
-  if (terminalInput.type === "password" && terminalInput.value.trim().toLowerCase() === "hint") {
-    revealPasswordHint();
-    return;
-  }
+  const value = terminalInput.value.trim().toLowerCase();
 
-  if (terminalInput.type === "password" && terminalInput.value.trim().toLowerCase() !== "wayne") {
+  if (terminalMode === "hint-command") {
+    if (value === "hint") {
+      revealPasswordHint();
+      return;
+    }
+
     terminalInput.value = "";
-    terminalInput.placeholder = "ACCESS DENIED";
-    terminalStatus.textContent = "ACCESS DENIED\nANALYZING ATTEMPT...\nCLUE AVAILABLE\nTYPE HINT TO DECRYPT";
-    terminalStatus.hidden = false;
+    terminalInput.placeholder = "TYPE HINT";
     terminalInput.focus();
     return;
   }
 
-  if (terminalInput.type === "password") {
+  if (terminalMode === "password" && value !== "wayne") {
+    if (hasRevealedHint) {
+      terminalInput.value = "";
+      terminalInput.placeholder = "ACCESS DENIED";
+      terminalInput.focus();
+      return;
+    }
+
+    rejectPassword();
+    return;
+  }
+
+  if (terminalMode === "password") {
     terminalInput.value = "";
     terminalInput.placeholder = "";
     terminalInput.disabled = true;
     terminalPrompt.textContent = "ACCESS GRANTED";
     terminalStatus.hidden = true;
     passwordHint.hidden = true;
+    document.body.classList.remove("is-hint-illuminated");
     accessMessage.hidden = false;
     return;
   }
 
-  if (terminalInput.value.trim().toLowerCase() !== "yes") {
+  if (value !== "yes") {
     terminalInput.value = "";
     terminalInput.placeholder = "TYPE YES";
     terminalInput.focus();
@@ -212,6 +318,7 @@ caveTerminal.addEventListener("submit", (event) => {
   terminalInput.placeholder = "";
   terminalInput.type = "password";
   terminalInput.autocomplete = "current-password";
+  terminalMode = "password";
   terminalLabel.textContent = "Enter password";
   terminalPrompt.textContent = "PASSWORD >";
   warningReadable.hidden = true;
