@@ -108,9 +108,12 @@
       />
       <div class="blackout" aria-hidden="true"></div>
       <section class="cave-warning" id="cave-warning" aria-hidden="true" aria-live="assertive">
-        <p>ARE YOU SURE YOU ARE READY</p>
-        <p>TO ENTER THE HOME OF THE BAT?</p>
-        <form class="cave-terminal" id="cave-terminal">
+        <p class="sr-only" id="warning-readable">
+          ARE YOU SURE YOU ARE READY TO ENTER THE HOME OF THE BAT?
+        </p>
+        <p class="warning-line" id="warning-line-one" aria-hidden="true"></p>
+        <p class="warning-line" id="warning-line-two" aria-hidden="true"></p>
+        <form class="cave-terminal" id="cave-terminal" hidden>
           <label class="sr-only" id="terminal-label" for="terminal-input">
             Type yes to continue
           </label>
@@ -123,6 +126,12 @@
             spellcheck="false"
           />
         </form>
+        <p class="terminal-status" id="terminal-status" aria-live="polite" hidden></p>
+        <p class="password-hint" id="password-hint" aria-live="polite" hidden></p>
+        <p class="access-message" id="access-message" hidden>
+          ACCESS GRANTED<br />
+          WELCOME TO THE BATCAVE
+        </p>
       </section>
     </main>
 
