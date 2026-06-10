@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useMemo, useSyncExternalStore } from "react";
 import type { Unit } from "@/types/curriculum";
 
 type Progress = {
@@ -29,31 +29,54 @@ function defaultProgress(): Progress {
 
 function saveProgress(p: Progress) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+  window.dispatchEvent(new Event(STORAGE_KEY));
+}
+
+function subscribeToProgress(onStoreChange: () => void) {
+  if (typeof window === "undefined") return () => {};
+
+  window.addEventListener("storage", onStoreChange);
+  window.addEventListener(STORAGE_KEY, onStoreChange);
+
+  return () => {
+    window.removeEventListener("storage", onStoreChange);
+    window.removeEventListener(STORAGE_KEY, onStoreChange);
+  };
+}
+
+function getProgressSnapshot() {
+  return JSON.stringify(loadProgress());
+}
+
+function getServerProgressSnapshot() {
+  return JSON.stringify(defaultProgress());
 }
 
 export function useProgress(curriculum?: Unit[]) {
-  const [progress, setProgress] = useState<Progress>(defaultProgress);
-
-  useEffect(() => {
-    setProgress(loadProgress());
-  }, []);
+  const progressSnapshot = useSyncExternalStore(
+    subscribeToProgress,
+    getProgressSnapshot,
+    getServerProgressSnapshot
+  );
+  const progress = useMemo(
+    () => JSON.parse(progressSnapshot) as Progress,
+    [progressSnapshot]
+  );
 
   const completeLesson = useCallback((lessonId: string, xpEarned: number) => {
-    setProgress((prev) => {
-      const today = new Date().toISOString().slice(0, 10);
-      const alreadyDone = prev.completedLessons.includes(lessonId);
-      const streak = calcStreak(prev.lastActiveDate, prev.streak, today);
-      const next: Progress = {
-        xp: prev.xp + xpEarned,
-        streak,
-        lastActiveDate: today,
-        completedLessons: alreadyDone
-          ? prev.completedLessons
-          : [...prev.completedLessons, lessonId],
-      };
-      saveProgress(next);
-      return next;
-    });
+    const prev = loadProgress();
+    const today = new Date().toISOString().slice(0, 10);
+    const alreadyDone = prev.completedLessons.includes(lessonId);
+    const streak = calcStreak(prev.lastActiveDate, prev.streak, today);
+    const next: Progress = {
+      xp: prev.xp + xpEarned,
+      streak,
+      lastActiveDate: today,
+      completedLessons: alreadyDone
+        ? prev.completedLessons
+        : [...prev.completedLessons, lessonId],
+    };
+    saveProgress(next);
   }, []);
 
   const isLessonCompleted = useCallback(

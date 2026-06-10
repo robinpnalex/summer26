@@ -44,6 +44,10 @@ export default function RoleplayChat({
         body: JSON.stringify({ messages: next, unitId }),
       });
 
+      if (!res.ok) {
+        throw new Error(await res.text());
+      }
+
       if (!res.body) throw new Error("No stream");
 
       const reader = res.body.getReader();
@@ -61,11 +65,15 @@ export default function RoleplayChat({
           return prev;
         });
       }
-    } catch {
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Sorry, something went wrong.";
       setMessages((prev) => {
         const last = prev[prev.length - 1];
         if (last.role === "assistant" && last.content === "") {
-          return [...prev.slice(0, -1), { role: "assistant", content: "Sorry, something went wrong. Check your API key." }];
+          return [...prev.slice(0, -1), { role: "assistant", content: message }];
         }
         return prev;
       });

@@ -2,9 +2,13 @@ import OpenAI from "openai";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
+  if (!process.env.GEMINI_API_KEY) {
+    return new Response("GEMINI_API_KEY is not configured", { status: 500 });
+  }
+
   const client = new OpenAI({
-    baseURL: "https://openrouter.ai/api/v1",
-    apiKey: process.env.OPENROUTER_API_KEY,
+    baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
+    apiKey: process.env.GEMINI_API_KEY,
   });
   const { prompt, correctAnswer, userAnswer } = await req.json() as {
     prompt: string;
@@ -13,7 +17,7 @@ export async function POST(req: NextRequest) {
   };
 
   const response = await client.chat.completions.create({
-    model: "google/gemma-4-31b-it:free",
+    model: process.env.GEMINI_GRADE_MODEL ?? "gemini-3.1-flash-lite",
     max_tokens: 128,
     messages: [
       {

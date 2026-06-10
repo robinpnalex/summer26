@@ -3,9 +3,13 @@ import { NextRequest } from "next/server";
 import { roleplayPrompts } from "@/content/roleplayPrompts";
 
 export async function POST(req: NextRequest) {
+  if (!process.env.GEMINI_API_KEY) {
+    return new Response("GEMINI_API_KEY is not configured", { status: 500 });
+  }
+
   const client = new OpenAI({
-    baseURL: "https://openrouter.ai/api/v1",
-    apiKey: process.env.OPENROUTER_API_KEY,
+    baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
+    apiKey: process.env.GEMINI_API_KEY,
   });
   const { messages, unitId } = await req.json() as {
     messages: { role: "user" | "assistant"; content: string }[];
@@ -17,15 +21,26 @@ export async function POST(req: NextRequest) {
     return new Response("Unknown unit", { status: 400 });
   }
 
-  const stream = await client.chat.completions.create({
-    model: "meta-llama/llama-3.2-3b-instruct:free",
-    max_tokens: 80,
-    messages: [
-      { role: "system", content: character.systemPrompt },
-      ...messages,
-    ],
-    stream: true,
-  });
+  let stream;
+  try {
+    stream = await client.chat.completions.create({
+      model: process.env.GEMINI_CHAT_MODEL ?? "gemini-3.1-flash-lite",
+      max_tokens: 80,
+      messages: [
+        { role: "system", content: character.systemPrompt },
+        ...messages,
+      ],
+      stream: true,
+    });
+  } catch (error) {
+    const status = error instanceof OpenAI.APIError ? error.status : 502;
+    const message =
+      status === 429
+        ? "Gemini returned 429. The selected model is rate limited or out of free quota."
+        : "Gemini chat request failed.";
+
+    return new Response(message, { status });
+  }
 
   const readable = new ReadableStream({
     async start(controller) {
