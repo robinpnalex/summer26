@@ -1,0 +1,1166 @@
+[
+  {
+    "id": "auto",
+    "title": "Auto Rides",
+    "description": "Negotiate fares, give directions, and talk to auto drivers like a local",
+    "icon": "🛺",
+    "lessons": [
+      {
+        "id": "auto-1",
+        "title": "Getting an Auto",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "You're at the roadside and want to know if the auto driver will go to Indiranagar. What do you say?",
+            "options": [
+              { "text": "Indiranagar hoguttira?", "correct": true },
+              { "text": "Indiranagar hogidhe", "correct": false },
+              { "text": "Indiranagar baruttira?", "correct": false }
+            ],
+            "explanation": "Hoguttira? = will you go? (asking the driver). Hogidhe = I went (past tense, wrong). Baruttira? = will you come? (wrong direction)."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The auto driver says 'Meter-nalli hogona'. What does he mean?",
+            "options": [
+              { "text": "Let's go on meter", "correct": true },
+              { "text": "The meter is broken", "correct": false },
+              { "text": "It's too far on meter", "correct": false }
+            ],
+            "explanation": "Meter-nalli = on meter. Hogona = let's go. A good sign — means they're willing to use the meter."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to ask how much it costs to go to MG Road.",
+            "options": [
+              { "text": "MG Road-ge eshtu aagutte?", "correct": true },
+              { "text": "MG Road-ge hoguttira?", "correct": false },
+              { "text": "MG Road elli ide?", "correct": false }
+            ],
+            "explanation": "Eshtu = how much. Aagutte = will it be / will it cost. MG Road-ge eshtu aagutte? = How much will it be to MG Road?"
+          },
+          {
+            "type": "context",
+            "prompt": "The driver asks for 200 rupees but you think 150 is fair. What do you say?",
+            "options": [
+              { "text": "150 kodi, saakaagatte", "correct": true },
+              { "text": "200 tumba jaasti", "correct": false },
+              { "text": "Meter-nalli hogona", "correct": false }
+            ],
+            "explanation": "Kodi = give/make it. Saakaagatte = it will be enough / that's sufficient. 150 kodi, saakaagatte = make it 150, that'll do. Tumba jaasti = too much (also useful but less direct for bargaining)."
+          },
+          {
+            "type": "meaning",
+            "prompt": "You offer 120 and the driver says 'Aagalla'. What does he mean?",
+            "options": [
+              { "text": "Not possible / No deal", "correct": true },
+              { "text": "OK, let's go", "correct": false },
+              { "text": "The road is blocked", "correct": false }
+            ],
+            "explanation": "Aagalla = cannot / not possible / no. Aagutte = possible/OK. Illa = no. Aagalla is the key word for refusal."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to say 'OK, let's go' after agreeing on a price. Complete: '___ hogona'",
+            "answer": "Sari",
+            "hint": "Sari = OK / alright / fine"
+          }
+        ]
+      },
+      {
+        "id": "auto-2",
+        "title": "Giving Directions",
+        "questions": [
+          {
+            "type": "meaning",
+            "prompt": "You're in the auto and say 'Nere hogi'. What are you telling the driver?",
+            "options": [
+              { "text": "Go straight", "correct": true },
+              { "text": "Turn left", "correct": false },
+              { "text": "Stop here", "correct": false }
+            ],
+            "explanation": "Nere = straight. Hogi = go. Nere hogi = go straight. Essential for giving directions."
+          },
+          {
+            "type": "translate",
+            "prompt": "You need the driver to turn left at the signal.",
+            "options": [
+              { "text": "Signal-nalli edakke tiri", "correct": true },
+              { "text": "Signal-nalli balaakke tiri", "correct": false },
+              { "text": "Signal-nalli nere hogi", "correct": false }
+            ],
+            "explanation": "Edakke = to the left. Balaakke = to the right. Tiri = turn. Signal-nalli edakke tiri = turn left at the signal."
+          },
+          {
+            "type": "context",
+            "prompt": "You've arrived at your destination. What do you say to stop the auto?",
+            "options": [
+              { "text": "Illi nilli", "correct": true },
+              { "text": "Illi hogi", "correct": false },
+              { "text": "Illi baa", "correct": false }
+            ],
+            "explanation": "Illi = here. Nilli = stop. Illi nilli = stop here. Hogi = go, Baa = come — wrong commands to stop."
+          },
+          {
+            "type": "meaning",
+            "prompt": "You say 'Aashte haadi-nalli balaakke tiri'. What do you mean?",
+            "options": [
+              { "text": "Turn right on the eighth road", "correct": true },
+              { "text": "Go straight to the eighth road", "correct": false },
+              { "text": "The eighth road is to the left", "correct": false }
+            ],
+            "explanation": "Aashte = eighth. Haadi = road/street. Balaakke = right. Tiri = turn. Haadi is the local word for a small road or lane."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to say 'A little further ahead'.",
+            "options": [
+              { "text": "Swalpa munde hogi", "correct": true },
+              { "text": "Swalpa hinde hogi", "correct": false },
+              { "text": "Swalpa edakke hogi", "correct": false }
+            ],
+            "explanation": "Swalpa = a little. Munde = ahead/forward. Hinde = behind/back. Swalpa munde hogi = go a little ahead."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to say 'Stop near the tea shop'. Complete: 'Chai angadi ___ nilli'",
+            "answer": "hattira",
+            "hint": "hattira = near / close to"
+          }
+        ]
+      },
+      {
+        "id": "auto-3",
+        "title": "Paying & Disputes",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "The meter shows 85 rupees. The driver demands 120. What do you say?",
+            "options": [
+              { "text": "Meter nodri, 85 aagutte", "correct": true },
+              { "text": "Tumba dura aagutte", "correct": false },
+              { "text": "Sari, 120 tagondi", "correct": false }
+            ],
+            "explanation": "Nodri = look (respectful command). Meter nodri = look at the meter. Aagutte = it's/it'll be. Meter nodri, 85 aagutte = Look at the meter, it's 85."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The driver says 'Chakra jaasti aagutte'. What is he complaining about?",
+            "options": [
+              { "text": "Traffic was heavy / the detour cost more", "correct": true },
+              { "text": "The meter is broken", "correct": false },
+              { "text": "It's too far", "correct": false }
+            ],
+            "explanation": "Chakra = traffic (literally 'circles'). Jaasti = more/extra. Aagutte = it becomes. He's saying traffic added to the cost."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to say 'I only have a hundred rupees note'.",
+            "options": [
+              { "text": "Naange noorurupaye noTu maatrame ide", "correct": true },
+              { "text": "Naange nooru rupaye beda", "correct": false },
+              { "text": "Nooru rupaye tumba jaasti", "correct": false }
+            ],
+            "explanation": "Naange = to me / I have. noTu = note (currency). maatrame = only. ide = there is. 'I only have a 100 rupee note' is a very common auto negotiation phrase."
+          },
+          {
+            "type": "meaning",
+            "prompt": "You ask 'Chillare ide?' What are you asking?",
+            "options": [
+              { "text": "Do you have change?", "correct": true },
+              { "text": "Is the fare correct?", "correct": false },
+              { "text": "Is the meter running?", "correct": false }
+            ],
+            "explanation": "Chillare = change (coins/small notes). Ide? = is there? Chillare ide? = Do you have change? Crucial after every auto ride."
+          },
+          {
+            "type": "context",
+            "prompt": "The driver says he has no change and expects you to pay more. You want to say 'I'll pay exactly the meter amount'.",
+            "options": [
+              { "text": "Meter-nalli irostu maatrame koduttene", "correct": true },
+              { "text": "Chillare illa, sari", "correct": false },
+              { "text": "Meter off maadi", "correct": false }
+            ],
+            "explanation": "Irostu = however much there is / the exact amount. Maatrame = only. Koduttene = I will give. 'I'll give only the meter amount' — a firm, fair response."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "To thank the driver and leave, you say 'Sari, ___'",
+            "answer": "dhanyavaada",
+            "hint": "dhanyavaada = thank you"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "market",
+    "title": "At the Market",
+    "description": "Buy vegetables, fruit, and groceries — bargain like a local",
+    "icon": "🥬",
+    "lessons": [
+      {
+        "id": "market-1",
+        "title": "Asking Prices",
+        "questions": [
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'How much is one kilo of tomatoes?'",
+            "options": [
+              { "text": "Tomato ondu kilo eshtu?", "correct": true },
+              { "text": "Tomato ondu kilo kodi", "correct": false },
+              { "text": "Tomato eshtu ide?", "correct": false }
+            ],
+            "explanation": "Ondu = one. Kilo = kilogram. Eshtu = how much. This is the core market question — works for any vegetable."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The vendor says 'Noorupayege eradu kilo'. What's the deal?",
+            "options": [
+              { "text": "Two kilos for 100 rupees", "correct": true },
+              { "text": "One kilo for 200 rupees", "correct": false },
+              { "text": "100 rupees per kilo", "correct": false }
+            ],
+            "explanation": "Noorupaye = 100 rupees. Eradu = two. Kilo = kilo. Noorupayege eradu kilo = two kilos for 100 rupees. -ge suffix here means 'for (that price)'."
+          },
+          {
+            "type": "context",
+            "prompt": "You think 60 rupees per kilo is too expensive. What do you say?",
+            "options": [
+              { "text": "Tumba jaasti aagutte, swalpa kammagi kodi", "correct": true },
+              { "text": "Tumba chenna aagutte", "correct": false },
+              { "text": "Eshtu dooradalli ide?", "correct": false }
+            ],
+            "explanation": "Tumba jaasti = too much. Kammagi = less/cheaper. Kodi = give. Swalpa kammagi kodi = give a little cheaper. Classic bargaining phrase."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The vendor says 'Chenna maal, rate fixed'. What is he telling you?",
+            "options": [
+              { "text": "Good quality, price is fixed", "correct": true },
+              { "text": "The goods are expensive today", "correct": false },
+              { "text": "Fixed weight, good price", "correct": false }
+            ],
+            "explanation": "Chenna = good/beautiful. Maal = goods/produce. Rate fixed = price is non-negotiable. He's defending the price with a quality claim."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want half a kilo of onions.",
+            "options": [
+              { "text": "EeruLi ardha kilo kodi", "correct": true },
+              { "text": "Eerulli ondu kilo beda", "correct": false },
+              { "text": "Ardha kilo tomato kodi", "correct": false }
+            ],
+            "explanation": "Eerulli = onion. Ardha = half. Kodi = give (polite command). Eerulli ardha kilo kodi = give half a kilo of onions."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to say 'Give me two of those'. Complete: 'Adhu ___ kodi'",
+            "answer": "eradu",
+            "hint": "eradu = two"
+          }
+        ]
+      },
+      {
+        "id": "market-2",
+        "title": "Bargaining",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "The vendor quotes 80 rupees per kilo. You want to counter-offer with 60.",
+            "options": [
+              { "text": "Aruvattu rupaye tagondi, sari-aa?", "correct": true },
+              { "text": "Aruvattu rupaye tumba jaasti", "correct": false },
+              { "text": "Nooru rupaye kodi", "correct": false }
+            ],
+            "explanation": "Aruvattu = 60. Tagondi = take (respectful). Sari-aa = is it OK? Aruvattu rupaye tagondi, sari-aa? = Take 60 rupees, is that OK? Polite counter-offer."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The vendor says 'Ninna rate-nalli hogalla, min 70'. What does he mean?",
+            "options": [
+              { "text": "Can't go at your price, minimum 70", "correct": true },
+              { "text": "Yesterday's rate was 70", "correct": false },
+              { "text": "70 is the maximum discount", "correct": false }
+            ],
+            "explanation": "Ninna = your. Rate-nalli = at that rate. Hogalla = won't go / can't do. Min = minimum. He's countering your offer with a floor price of 70."
+          },
+          {
+            "type": "translate",
+            "prompt": "You've seen the same thing cheaper across the street. You want to say 'That shop gives it for less'.",
+            "options": [
+              { "text": "Aa angadiyalli kammagi koduttare", "correct": true },
+              { "text": "Aa angadiyalli tumba jaasti", "correct": false },
+              { "text": "Aa angadi chenna ide", "correct": false }
+            ],
+            "explanation": "Aa = that. Angadi = shop. Nalli = in/at. Kammagi = cheaper/less. Koduttare = they give (third person plural). A classic move that often works."
+          },
+          {
+            "type": "context",
+            "prompt": "You've agreed on a price and want to buy two kilos. You say:",
+            "options": [
+              { "text": "Sari, eradu kilo pakka maaḍi", "correct": true },
+              { "text": "Eradu kilo eshtu?", "correct": false },
+              { "text": "Eradu kilo jaasti", "correct": false }
+            ],
+            "explanation": "Sari = OK. Eradu = two. Pakka maadi = pack it properly (respectful command). Pakka = packed/proper. Once agreed, this confirms the purchase."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The vendor puts a bit extra on the scale and says 'Swalpa extra hakidde'. What did he do?",
+            "options": [
+              { "text": "Added a little extra (as a gesture)", "correct": true },
+              { "text": "Charged extra", "correct": false },
+              { "text": "Weighed it wrong", "correct": false }
+            ],
+            "explanation": "Swalpa = a little. Extra = extra. Hakidde = I put/added. This is a common friendly vendor gesture — adding a little bonus. You can smile and say 'Dhanyavaada'."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to ask 'Is it fresh?' Complete: 'Fresh ___ ide?'",
+            "answer": "aagide",
+            "hint": "aagide = is it / has it become (used to ask if something is fresh/ready)"
+          }
+        ]
+      },
+      {
+        "id": "market-3",
+        "title": "Vegetables & Quantities",
+        "questions": [
+          {
+            "type": "meaning",
+            "prompt": "What does 'Bende kayi' mean?",
+            "options": [
+              { "text": "Okra / Ladies finger", "correct": true },
+              { "text": "Banana", "correct": false },
+              { "text": "Bitter gourd", "correct": false }
+            ],
+            "explanation": "Bende kayi = okra/ladies finger. Kayi = vegetable/fruit (raw). Very common in Karnataka cuisine."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to ask for 'a bunch of coriander'.",
+            "options": [
+              { "text": "Kottambri soppu ondu kattu kodi", "correct": true },
+              { "text": "Kottambri kayi eradu kodi", "correct": false },
+              { "text": "Soppu ondu kilo kodi", "correct": false }
+            ],
+            "explanation": "Kottambri = coriander. Soppu = leafy greens. Kattu = bunch. Ondu kattu = one bunch. Soppu is the general word for leafy vegetables."
+          },
+          {
+            "type": "context",
+            "prompt": "The vendor gives you wilted coriander. You want to say 'Give me fresh ones'.",
+            "options": [
+              { "text": "Fresh-aagirostu kodi", "correct": true },
+              { "text": "Kottambri kammagi kodi", "correct": false },
+              { "text": "Soppu jaasti kodi", "correct": false }
+            ],
+            "explanation": "Fresh-aagirostu = the ones that are fresh. Kodi = give. You can point and say this — the vendor will understand."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The vendor holds up a bag of mixed vegetables and says 'Kootu tarkari'. What is it?",
+            "options": [
+              { "text": "Vegetables for making kootu (mixed curry)", "correct": true },
+              { "text": "A pre-made curry", "correct": false },
+              { "text": "Expired vegetables at a discount", "correct": false }
+            ],
+            "explanation": "Kootu = a dry Karnataka curry dish. Tarkari = vegetables. Kootu tarkari is a pre-mixed bag of vegetables perfect for making kootu — a common offering at Karnataka markets."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to say 'I'll take this much' while pointing to a pile.",
+            "options": [
+              { "text": "Ishtu tagondi", "correct": true },
+              { "text": "Eshtu aagutte?", "correct": false },
+              { "text": "Idu beda", "correct": false }
+            ],
+            "explanation": "Ishtu = this much (pointing). Tagondi = take/I'll take. Eshtu = how much (question). Idu beda = I don't want this."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You're done shopping and want to say 'I don't need anything else'. Complete: 'Bere ___ beda'",
+            "answer": "enu",
+            "hint": "enu = anything/nothing. Bere enu = anything else."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tea-stall",
+    "title": "Tea Stall & Darshini",
+    "description": "Order chai, coffee, and breakfast at local eateries",
+    "icon": "☕",
+    "lessons": [
+      {
+        "id": "chai-1",
+        "title": "Ordering Drinks",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "You walk up to a tea stall. How do you order one cutting chai?",
+            "options": [
+              { "text": "Ondu cutting kodi", "correct": true },
+              { "text": "Ondu chai beda", "correct": false },
+              { "text": "Chai eshtu?", "correct": false }
+            ],
+            "explanation": "Cutting = half-glass strong tea (local Bangalore slang). Ondu = one. Kodi = give. 'Ondu cutting kodi' is what locals say — no need to say 'chai'."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The stall owner asks 'Sakkare haakali-aa?'. What does he want to know?",
+            "options": [
+              { "text": "Should I add sugar?", "correct": true },
+              { "text": "Do you want it hot?", "correct": false },
+              { "text": "With milk or without?", "correct": false }
+            ],
+            "explanation": "Sakkare = sugar. Haakali = should I put/add? -aa = question marker. Sakkare haakali-aa? = Should I put sugar? Common question for tea orders."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want a filter coffee with less sugar.",
+            "options": [
+              { "text": "Filter coffee swalpa kamma sakkare", "correct": true },
+              { "text": "Filter coffee jaasti sakkare beda", "correct": false },
+              { "text": "Filter coffee tumba bisi", "correct": false }
+            ],
+            "explanation": "Swalpa = a little. Kamma = less. Sakkare = sugar. Swalpa kamma sakkare = a little less sugar. You can also just say 'kamma sakkare'."
+          },
+          {
+            "type": "context",
+            "prompt": "The owner brings your chai but it's lukewarm. You want to politely say 'It's not hot enough'.",
+            "options": [
+              { "text": "Swalpa bisi illa", "correct": true },
+              { "text": "Chai tumba bisi", "correct": false },
+              { "text": "Bisi maadi kodi", "correct": false }
+            ],
+            "explanation": "Swalpa bisi illa = a little not-hot / not hot enough. Bisi = hot. Illa = not/no. You can add 'maade kodi' (please heat it) but this softer phrase is less confrontational."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The owner says 'Nimma chai ready aagutte, swalpa wait maadi'. What is he saying?",
+            "options": [
+              { "text": "Your chai will be ready soon, wait a little", "correct": true },
+              { "text": "The chai is getting cold, drink quickly", "correct": false },
+              { "text": "We're out of chai, wait for next batch", "correct": false }
+            ],
+            "explanation": "Nimma = your (formal). Ready aagutte = will be ready. Swalpa = a little. Wait maadi = please wait. Very common phrase at busy tea stalls."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want two teas. Complete: '___ cutting kodi'",
+            "answer": "Eradu",
+            "hint": "eradu = two"
+          }
+        ]
+      },
+      {
+        "id": "chai-2",
+        "title": "Ordering Breakfast",
+        "questions": [
+          {
+            "type": "translate",
+            "prompt": "You want to order two idlis and a vada.",
+            "options": [
+              { "text": "Eradu idli, ondu vada kodi", "correct": true },
+              { "text": "Idli eradu, vada ondu eshtu?", "correct": false },
+              { "text": "Ondu idli, eradu vada beda", "correct": false }
+            ],
+            "explanation": "Eradu = two. Ondu = one. Kodi = give me. At a darshini you just list what you want and say kodi. Simple and effective."
+          },
+          {
+            "type": "context",
+            "prompt": "You want to know what breakfast items are available today. What do you ask?",
+            "options": [
+              { "text": "Enu enu ide indu?", "correct": true },
+              { "text": "Indu eshtu jaasti ide?", "correct": false },
+              { "text": "Breakfast maaduttira?", "correct": false }
+            ],
+            "explanation": "Enu enu = what what / what all. Ide = is there. Indu = today. Enu enu ide indu? = What all is there today? The casual doubling of 'enu' is very natural in spoken Kannada."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The darshini guy says 'Khali plate-ge extra charge ide'. What does that mean?",
+            "options": [
+              { "text": "There's an extra charge for empty plate (plate service)", "correct": true },
+              { "text": "The empty plate means they're out of food", "correct": false },
+              { "text": "Charging extra because the plate is large", "correct": false }
+            ],
+            "explanation": "Khali = empty. Plate-ge = for the plate. Extra charge ide = there is an extra charge. Some darshinis charge separately for the plate/service — good to know upfront."
+          },
+          {
+            "type": "translate",
+            "prompt": "The dosa isn't crispy enough. You want to say 'Make it a bit more crispy'.",
+            "options": [
+              { "text": "Swalpa jaasti crispy maadi kodi", "correct": true },
+              { "text": "Dosa bisi maadi kodi", "correct": false },
+              { "text": "Dosa jaasti beka", "correct": false }
+            ],
+            "explanation": "Swalpa jaasti = a little more. Crispy = crispy (borrowed word). Maadi kodi = please do/make. You can point to the tawa and say this — they'll understand."
+          },
+          {
+            "type": "context",
+            "prompt": "You've finished eating and want to ask for the bill.",
+            "options": [
+              { "text": "Bill kodi", "correct": true },
+              { "text": "Oota aagutte", "correct": false },
+              { "text": "Mathe kodi", "correct": false }
+            ],
+            "explanation": "Bill kodi = give the bill. Simple and universally understood. No need to add anything else at a local darshini."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want extra chutney. Complete: 'Swalpa ___ kodi'",
+            "answer": "chutney",
+            "hint": "chutney is the same word in Kannada — and it's served free at darshinis!"
+          }
+        ]
+      },
+      {
+        "id": "chai-3",
+        "title": "Chatting at the Stall",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "You're a regular. The chai wala greets you and asks 'Ninna haage?'. What is he asking?",
+            "options": [
+              { "text": "Same as usual? (your regular order?)", "correct": true },
+              { "text": "How are you today?", "correct": false },
+              { "text": "Did you come yesterday?", "correct": false }
+            ],
+            "explanation": "Ninna haage = same as last time / like yesterday. At a local stall, once you're a regular they'll remember your order. 'Ninna haage?' means 'the usual?'"
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to say 'Yes, same as usual'.",
+            "options": [
+              { "text": "Howdu, ninna haagene", "correct": true },
+              { "text": "Howdu, mathe kodi", "correct": false },
+              { "text": "Sari, idli kodi", "correct": false }
+            ],
+            "explanation": "Howdu = yes. Ninna haagene = exactly like before / same as usual. Adding 'ne' emphasizes 'same.' A great phrase for regulars."
+          },
+          {
+            "type": "meaning",
+            "prompt": "You tell the chai wala 'Indu tumba busy'. What are you saying?",
+            "options": [
+              { "text": "Very busy today", "correct": true },
+              { "text": "The tea is very strong today", "correct": false },
+              { "text": "Too many people today", "correct": false }
+            ],
+            "explanation": "Indu = today. Tumba = very/a lot. Busy = busy (English word used in Kannada). Great small talk phrase to start a chat."
+          },
+          {
+            "type": "context",
+            "prompt": "It's been raining and you want to make small talk about the weather.",
+            "options": [
+              { "text": "Tumba male aagutte, sari aagutte", "correct": true },
+              { "text": "Male jaasti, auto beda", "correct": false },
+              { "text": "Rain nodalike chenna aagutte", "correct": false }
+            ],
+            "explanation": "Tumba male = lots of rain. Aagutte = is happening/will be. Sari aagutte = it's good / it's fine. 'Lots of rain, that's good' — locals love saying this in summer."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The chai wala says 'Nimdu regular spot idu, yaavaglu barri'. What is he saying?",
+            "options": [
+              { "text": "This is your regular spot, come anytime", "correct": true },
+              { "text": "Your spot is taken, come back later", "correct": false },
+              { "text": "You come here too regularly", "correct": false }
+            ],
+            "explanation": "Nimdu = yours. Regular spot = regular spot. Yaavaglu = anytime/always. Barri = come (polite). A warm invitation to become a regular — this is local hospitality."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to compliment the chai: 'Today's chai is very good'. Complete: 'Indu chai tumba ___'",
+            "answer": "chenna aagutte",
+            "hint": "chenna aagutte = is/has become good (used as a compliment)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kirana",
+    "title": "Kirana Store",
+    "description": "Buy groceries, ask for items, and become a regular",
+    "icon": "🏪",
+    "lessons": [
+      {
+        "id": "kirana-1",
+        "title": "Asking for Items",
+        "questions": [
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'Do you have coconut oil?'",
+            "options": [
+              { "text": "Tengina enne ide-aa?", "correct": true },
+              { "text": "Tengina enne eshtu?", "correct": false },
+              { "text": "Tengina enne kodi", "correct": false }
+            ],
+            "explanation": "Tengina = coconut. Enne = oil. Ide-aa? = is it there? The -aa at the end makes it a yes/no question. Ask first before ordering."
+          },
+          {
+            "type": "meaning",
+            "prompt": "You ask for something and the shopkeeper says 'Stock aagitta, naale baratte'. What does he mean?",
+            "options": [
+              { "text": "Stock is finished, it'll come tomorrow", "correct": true },
+              { "text": "New stock arrived today, come back later", "correct": false },
+              { "text": "This item is only available tomorrow", "correct": false }
+            ],
+            "explanation": "Stock aagitta = stock is done/over (aagitta = has become/is done). Naale = tomorrow. Baratte = it will come. He's telling you to come back tomorrow."
+          },
+          {
+            "type": "translate",
+            "prompt": "You need a packet of salt and a kilo of rice.",
+            "options": [
+              { "text": "Ondu uppu packet, akki ondu kilo kodi", "correct": true },
+              { "text": "Uppu ondu kilo, akki beda", "correct": false },
+              { "text": "Akki uppu eradu kodi", "correct": false }
+            ],
+            "explanation": "Uppu = salt. Akki = rice. Ondu = one. Kodi = give. List items in order and end with kodi — that's all you need."
+          },
+          {
+            "type": "context",
+            "prompt": "You want a specific brand but they offer a substitute. You want to say 'No, only that brand'.",
+            "options": [
+              { "text": "Illa, aa brand maatrame beka", "correct": true },
+              { "text": "Aa brand tumba chenna", "correct": false },
+              { "text": "Bere brand beda, dhanyavaada", "correct": false }
+            ],
+            "explanation": "Illa = no. Aa = that. Maatrame = only. Beka = I want/I need. Aa brand maatrame beka = I need only that brand. Clear and direct."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The shopkeeper says 'Cash illa-aa? Gpay maadi'. What does he want?",
+            "options": [
+              { "text": "No cash? Pay via GPay (UPI)", "correct": true },
+              { "text": "Don't have enough cash, use GPay for extra", "correct": false },
+              { "text": "Cash payment only, no GPay", "correct": false }
+            ],
+            "explanation": "Cash illa-aa? = no cash? GPay maadi = do GPay. Very common at Bangalore kirana stores — most now prefer UPI. Maadi = do (respectful command)."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to put groceries on credit (khata). Complete: '___ haakodiri'",
+            "answer": "Khata-ge",
+            "hint": "Khata = credit account. Khata-ge = to the khata/account. Haakodiri = please put/add (respectful)."
+          }
+        ]
+      },
+      {
+        "id": "kirana-2",
+        "title": "Weights & Measures",
+        "questions": [
+          {
+            "type": "translate",
+            "prompt": "You want 250 grams of cumin seeds.",
+            "options": [
+              { "text": "Jeerige kaalu kilo kodi", "correct": true },
+              { "text": "Jeerige ondu kilo kodi", "correct": false },
+              { "text": "Jeerige swalpa kodi", "correct": false }
+            ],
+            "explanation": "Jeerige = cumin seeds. Kaalu kilo = quarter kilo (250g). Kaalu = quarter (1/4). Ardha = half (500g). Ondu = full one kilo."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The shopkeeper says 'Loose ide-aa, packet-nalli bekaa?'. What is he asking?",
+            "options": [
+              { "text": "Do you want it loose or in a packet?", "correct": true },
+              { "text": "Is it loose in a packet already?", "correct": false },
+              { "text": "The packet is loose, should I tighten it?", "correct": false }
+            ],
+            "explanation": "Loose ide = it's loose/unpackaged. Packet-nalli = in a packet. Bekaa? = do you want/need? He's asking if you want it weighed loose or pre-packaged — loose is usually cheaper."
+          },
+          {
+            "type": "context",
+            "prompt": "The scale shows 480g but you asked for 500g. You say:",
+            "options": [
+              { "text": "Swalpa kamma aagutte, 500g beka", "correct": true },
+              { "text": "500g tumba jaasti", "correct": false },
+              { "text": "Ondu kilo kodi", "correct": false }
+            ],
+            "explanation": "Swalpa kamma = a little less. Aagutte = it is. 500g beka = I need 500g. Pointing to the scale while saying this makes it very clear."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'Is this full weight?'",
+            "options": [
+              { "text": "Tookka sari ide-aa?", "correct": true },
+              { "text": "Weight eshtu aagutte?", "correct": false },
+              { "text": "Full kilo kodi", "correct": false }
+            ],
+            "explanation": "Tookka = weight (in the sense of measured weight). Sari = correct/right. Ide-aa? = is it? Tookka sari ide-aa? = Is the weight correct? Useful when you're suspicious of the scale."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The shopkeeper gives you a little extra and says 'Ondu kaalu jaasti'. What did he add?",
+            "options": [
+              { "text": "A quarter more (extra 250g)", "correct": true },
+              { "text": "One whole extra kilo", "correct": false },
+              { "text": "A little pinch extra", "correct": false }
+            ],
+            "explanation": "Ondu kaalu = one quarter. Jaasti = extra/more. So ondu kaalu jaasti = one quarter extra. This is a generous gesture from a friendly shopkeeper."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want 'a little' of something. Complete: 'Swalpa ___ kodi' (give me a little turmeric)",
+            "answer": "arishina",
+            "hint": "arishina = turmeric. A bright yellow spice used in almost every Karnataka dish."
+          }
+        ]
+      },
+      {
+        "id": "kirana-3",
+        "title": "Becoming a Regular",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "You're shopping for the first time at a new kirana. You want to introduce yourself as a local.",
+            "options": [
+              { "text": "Naanu hattira-ve iddhene, nimage regular aagutte", "correct": true },
+              { "text": "Naanu illi keli maaduttene", "correct": false },
+              { "text": "Namaskara, enu enu ide?", "correct": false }
+            ],
+            "explanation": "Hattira-ve = right nearby. Iddhene = I am/I live. Nimage = to you. Regular aagutte = will become a regular. 'I live right nearby, I'll be a regular' — shopkeepers love this."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The shopkeeper says 'Nimge home delivery maaduttene'. What is he offering?",
+            "options": [
+              { "text": "He'll deliver to your home", "correct": true },
+              { "text": "You should pick up yourself", "correct": false },
+              { "text": "He'll call before delivery", "correct": false }
+            ],
+            "explanation": "Nimge = for you / to you (formal). Home delivery maaduttene = I'll do/give home delivery. Many Bangalore kirana stores offer free delivery to regulars — great to know."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to say 'Please keep this aside for me'.",
+            "options": [
+              { "text": "Naange aachege idri", "correct": true },
+              { "text": "Naange hattira ittu", "correct": false },
+              { "text": "Naange maatte ittu", "correct": false }
+            ],
+            "explanation": "Naange = for me. Aachege = aside / set apart. Idri = please keep (respectful). 'Please keep it set aside for me' — great for reserving something before paying."
+          },
+          {
+            "type": "context",
+            "prompt": "At the end of the month you want to settle your credit account. You say:",
+            "options": [
+              { "text": "Khata tumba aagutte, indu clear maadona", "correct": true },
+              { "text": "Khata eshtu ide, naale kodi", "correct": false },
+              { "text": "Khata khali maadi kodi", "correct": false }
+            ],
+            "explanation": "Khata tumba aagutte = the account has gotten big. Clear maadona = let's clear it. Indu = today. A natural way to initiate settling your tab."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The shopkeeper says 'Nimma khata-nalli 450 ide'. What does he mean?",
+            "options": [
+              { "text": "You have 450 rupees on your credit account", "correct": true },
+              { "text": "You have 450 rupees in credit (he owes you)", "correct": false },
+              { "text": "The total today is 450 rupees", "correct": false }
+            ],
+            "explanation": "Nimma = your. Khata-nalli = in the account. 450 ide = there is 450. He's telling you your outstanding balance. Pay up!"
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You forgot something. Complete: 'Ondu nimishe, ___ marete' (Wait a moment, I forgot something)",
+            "answer": "enu-o",
+            "hint": "enu-o = something (indefinite). Marete = I forgot. 'Something I forgot.'"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neighbors",
+    "title": "Neighbors & Daily Life",
+    "description": "Build real relationships with the people around you",
+    "icon": "🏘️",
+    "lessons": [
+      {
+        "id": "neighbors-1",
+        "title": "Morning Greetings",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "You see your neighbor on the way out in the morning. The natural greeting is:",
+            "options": [
+              { "text": "Namaskara, hoguttiddira?", "correct": true },
+              { "text": "Shubha raatri, hegidheera?", "correct": false },
+              { "text": "Namaskara, baruttiddira?", "correct": false }
+            ],
+            "explanation": "Hoguttiddira? = are you going? (present continuous, polite). Seeing someone leaving, asking if they're heading out is a natural opener. Baruttiddira = are you coming? — wrong if they're clearly leaving."
+          },
+          {
+            "type": "meaning",
+            "prompt": "Your neighbor says 'Swalpa kelsa ide, office-ge hoguttiddene'. What are they saying?",
+            "options": [
+              { "text": "Have a little work, going to the office", "correct": true },
+              { "text": "Coming back from the office, some work pending", "correct": false },
+              { "text": "The office has a lot of work today", "correct": false }
+            ],
+            "explanation": "Swalpa = a little. Kelsa = work. Ide = there is. Office-ge = to the office. Hoguttiddene = I am going. A casual response when you're in a hurry."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to say 'My name is Rahul, I live on the second floor'.",
+            "options": [
+              { "text": "Nanna hesaru Rahul, eradu maalige-nalli iddhene", "correct": true },
+              { "text": "Naanu Rahul, eradu angadi hattira iddhene", "correct": false },
+              { "text": "Hesaru Rahul, eradu kilo ide", "correct": false }
+            ],
+            "explanation": "Nanna hesaru = my name. Eradu = two/second. Maalige = floor/storey. Nalli = in. Iddhene = I am/I live. Very useful for introducing yourself to a new neighbor."
+          },
+          {
+            "type": "context",
+            "prompt": "It's been a few days since you've seen your neighbor. A warm way to say 'Haven't seen you in a while':",
+            "options": [
+              { "text": "Swalpa dina-nalli kaanenilla", "correct": true },
+              { "text": "Neevu elli hogiddhira?", "correct": false },
+              { "text": "Tumba dina aagutte, bandiddhira?", "correct": false }
+            ],
+            "explanation": "Swalpa = little/few. Dina = days. Nalli = in. Kaanenilla = I didn't see. 'Didn't see you for a few days' — warm without being intrusive."
+          },
+          {
+            "type": "meaning",
+            "prompt": "Your neighbor says 'Ooru hogiddhe, nannu bandhe'. What do they mean?",
+            "options": [
+              { "text": "Went to my hometown, just came back", "correct": true },
+              { "text": "Going to my hometown, I'll come back", "correct": false },
+              { "text": "Came from my hometown, going back tomorrow", "correct": false }
+            ],
+            "explanation": "Ooru = hometown/native place (very important word in Bangalore). Hogiddhe = I had gone. Nannu = just now. Bandhe = I came. 'Had gone to native, just returned' — explains an absence."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to ask 'When did you come back?' Complete: 'Yaavaaga ___?'",
+            "answer": "banddhira",
+            "hint": "banddhira = did you come? (past tense question, formal). yaavaaga = when"
+          }
+        ]
+      },
+      {
+        "id": "neighbors-2",
+        "title": "Asking for Help",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "You're locked out and want to ask your neighbor if you can use their phone.",
+            "options": [
+              { "text": "Nimma phone swalpa use maadabahudu-aa?", "correct": true },
+              { "text": "Nimma phone kodi", "correct": false },
+              { "text": "Phone elli ide?", "correct": false }
+            ],
+            "explanation": "Nimma = your. Phone use maadabahudu-aa? = Can I use the phone? Bahudu = may/can (polite permission). Kodi = give me — too direct here. Maadabahudu-aa is the right form for asking permission."
+          },
+          {
+            "type": "meaning",
+            "prompt": "You ask your neighbor for a favor and they say 'Yaavude problem illa, maadi'. What do they mean?",
+            "options": [
+              { "text": "No problem at all, go ahead / I'll do it", "correct": true },
+              { "text": "There's a small problem, I'll fix it", "correct": false },
+              { "text": "What's the problem? Tell me.", "correct": false }
+            ],
+            "explanation": "Yaavude = any/whatever. Problem illa = no problem. Maadi = do it/go ahead. 'Yaavude problem illa' is a genuinely warm 'absolutely no problem' in Kannada."
+          },
+          {
+            "type": "translate",
+            "prompt": "There's been a power cut and you want to ask if their building has power.",
+            "options": [
+              { "text": "Nimma building-nalli current ide-aa?", "correct": true },
+              { "text": "Current elli hogide?", "correct": false },
+              { "text": "Light bande-aa nimm-alli?", "correct": false }
+            ],
+            "explanation": "Nimma = your. Building-nalli = in the building. Current = electricity (universally used in Bangalore). Ide-aa? = is there? 'Current' not 'electricity' is what locals say."
+          },
+          {
+            "type": "context",
+            "prompt": "Your neighbor helped you and you want to say 'Thank you very much, you saved me'.",
+            "options": [
+              { "text": "Tumba dhanyavaada, neevu naannu ulisiddhira", "correct": true },
+              { "text": "Dhanyavaada, tumba bisi maadiddhira", "correct": false },
+              { "text": "Dhanyavaada, tumba chenna ide", "correct": false }
+            ],
+            "explanation": "Tumba = very. Dhanyavaada = thank you. Ulisiddhira = you saved (me). Naannu = me. A heartfelt thank-you. Ulisiddhira is used both literally (saved) and figuratively (you were a lifesaver)."
+          },
+          {
+            "type": "meaning",
+            "prompt": "Your neighbor says 'Bere yaavude sahaya beka aadare heli'. What are they offering?",
+            "options": [
+              { "text": "If you need any other help, just ask", "correct": true },
+              { "text": "You can help me with something else", "correct": false },
+              { "text": "That help was not necessary, no need", "correct": false }
+            ],
+            "explanation": "Bere = other/else. Yaavude = any. Sahaya = help. Beka aadare = if you need. Heli = tell me/ask. 'If you need any other help, just tell me' — warm neighborly offer."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to say 'I'll definitely return the favor'. Complete: 'Naanu ___ madtane iddene'",
+            "answer": "mathe",
+            "hint": "mathe = again / in return. madtane = will definitely do. 'I will definitely do it in return.'"
+          }
+        ]
+      },
+      {
+        "id": "neighbors-3",
+        "title": "Local Conversations",
+        "questions": [
+          {
+            "type": "context",
+            "prompt": "The watchman sees you late at night and wants to know where you're going. A friendly response:",
+            "options": [
+              { "text": "Swalpa kaafi kudiyakke hoguttiddhene, bayage baruttene", "correct": true },
+              { "text": "Naange gottilla, hoguttiddhene", "correct": false },
+              { "text": "Neevu yaake keLtira?", "correct": false }
+            ],
+            "explanation": "Swalpa kaafi kudiyakke = to drink a little coffee. Bayage = outside. Baruttene = I'll come back. A warm, transparent answer builds trust with the watchman. 'Neevu yaake keLtira?' = why are you asking? — too defensive."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The house help says 'Indu baralla, naale baruttene'. What should you expect?",
+            "options": [
+              { "text": "Not coming today, will come tomorrow", "correct": true },
+              { "text": "Coming today late, not tomorrow", "correct": false },
+              { "text": "Came yesterday, coming again today", "correct": false }
+            ],
+            "explanation": "Indu = today. Baralla = will not come. Naale = tomorrow. Baruttene = will come. Critical phrase to recognize so you can plan your day accordingly!"
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to tell the plumber 'The tap is leaking, please fix it'.",
+            "options": [
+              { "text": "Tap leaka aagutte, sari maadi kodi", "correct": true },
+              { "text": "Tap odedide, tagondi", "correct": false },
+              { "text": "Tap bisi aagutte, nodri", "correct": false }
+            ],
+            "explanation": "Tap leaka aagutte = the tap is leaking. Sari maadi kodi = please fix / please set right. Sari maadu = to fix/correct. Works for most repair requests."
+          },
+          {
+            "type": "context",
+            "prompt": "You want to give your neighbor your phone number so they can call in an emergency.",
+            "options": [
+              { "text": "Nanna number ittukoli, yaavude vishaya-nalli call maadi", "correct": true },
+              { "text": "Nimma number kodi, naanu call maaduttene", "correct": false },
+              { "text": "Phone number beda, illi banni", "correct": false }
+            ],
+            "explanation": "Nanna = my. Ittukoli = keep it (save it). Yaavude = any. Vishaya = matter/thing. Naanu call maadi = call me. 'Keep my number, call for anything' — great for building local community."
+          },
+          {
+            "type": "meaning",
+            "prompt": "A neighbor says 'Nimge Kannada tumba chenna baratte'. What are they saying?",
+            "options": [
+              { "text": "Your Kannada is coming along very nicely", "correct": true },
+              { "text": "Your Kannada is too difficult to understand", "correct": false },
+              { "text": "You should learn more Kannada", "correct": false }
+            ],
+            "explanation": "Nimge = to you / your. Tumba = very. Chenna = good/nicely. Baratte = it comes / you speak. A wonderful compliment you'll hear once you start using these phrases!"
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to say 'I am learning, slowly slowly'. Complete: 'Naanu kaliyuttiddhene, ___ ___'",
+            "answer": "nidhaanav nidhaanav",
+            "hint": "nidhaanav = slowly. Repeating it ('slowly slowly') is natural emphasis in Kannada."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "getting-around",
+    "title": "Getting Around",
+    "description": "Navigate the city — buses, directions, and local landmarks",
+    "icon": "🗺️",
+    "lessons": [
+      {
+        "id": "around-1",
+        "title": "Asking for Directions",
+        "questions": [
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'Where is the bus stop?'",
+            "options": [
+              { "text": "Bus stop elli ide?", "correct": true },
+              { "text": "Bus stop hoguttira?", "correct": false },
+              { "text": "Bus stop eshtu dura?", "correct": false }
+            ],
+            "explanation": "Elli = where. Ide? = is there? Elli ide? is the core 'where is' question. Works for anything: 'Hospital elli ide?' 'ATM elli ide?'"
+          },
+          {
+            "type": "meaning",
+            "prompt": "Someone says 'Nere hogi, signal aadmele edakke tiri'. Where do you end up?",
+            "options": [
+              { "text": "Go straight, then turn left after the signal", "correct": true },
+              { "text": "Turn left at the signal, then go straight", "correct": false },
+              { "text": "Go straight past the signal, then right", "correct": false }
+            ],
+            "explanation": "Nere hogi = go straight. Signal aadmele = after the signal passes. Edakke = left. Tiri = turn. Aadmele is a very useful word meaning 'after' or 'once that's done'."
+          },
+          {
+            "type": "context",
+            "prompt": "You've been walking and think you're lost. You stop someone and ask:",
+            "options": [
+              { "text": "Excuse me, Koramangala elli aagutte?", "correct": true },
+              { "text": "Koramangala hoguttira?", "correct": false },
+              { "text": "Koramangala illi ide-aa?", "correct": false }
+            ],
+            "explanation": "Elli aagutte? = where will it be? / where is it? Used when asking about a general area. 'Illi ide?' would mean 'is it right here?' — too specific when you're lost."
+          },
+          {
+            "type": "meaning",
+            "prompt": "Someone says 'Swalpa dooradalli ide, naadekondu hogbahadu'. What are they telling you?",
+            "options": [
+              { "text": "It's a little far, you can walk there", "correct": true },
+              { "text": "It's very far, don't walk", "correct": false },
+              { "text": "It's nearby but the road is confusing", "correct": false }
+            ],
+            "explanation": "Swalpa dooradalli = a little far. Naadekondu = walking. Hogbahadu = you can go. 'It's a little far, you can walk' — an honest answer. Decide if you want to walk or take an auto."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'How far is it from here?'",
+            "options": [
+              { "text": "Illiinda eshtu dura ide?", "correct": true },
+              { "text": "Illi eshtu ide?", "correct": false },
+              { "text": "Illi dura hoguttira?", "correct": false }
+            ],
+            "explanation": "Illiinda = from here. Inda = from. Eshtu = how much. Dura = far/distance. Ide? = is it? Illiinda eshtu dura ide? = How far is it from here?"
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to say 'I don't know this area'. Complete: 'Naange ee ___ gottilla'",
+            "answer": "jaaga",
+            "hint": "jaaga = place/area/location. Gottilla = I don't know."
+          }
+        ]
+      },
+      {
+        "id": "around-2",
+        "title": "Taking the Bus",
+        "questions": [
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'Does this bus go to Majestic?'",
+            "options": [
+              { "text": "Ee bus Majestic-ge hoguttaa?", "correct": true },
+              { "text": "Ee bus Majestic-inda baruttaa?", "correct": false },
+              { "text": "Majestic bus elli ide?", "correct": false }
+            ],
+            "explanation": "Ee = this. Hoguttaa? = does it go? (question form of hoguttide). Ge = to. This works on BMTC — just point at the bus and ask."
+          },
+          {
+            "type": "context",
+            "prompt": "You're on the bus. You want to tell the conductor where you're going to get a ticket.",
+            "options": [
+              { "text": "Vidhana Soudha ondu", "correct": true },
+              { "text": "Vidhana Soudha-ge hoguttene", "correct": false },
+              { "text": "Vidhana Soudha ticket eshtu?", "correct": false }
+            ],
+            "explanation": "On Bangalore buses, just say the destination + 'ondu' (one). The conductor knows you want one ticket. No need for 'ticket kodi' or full sentences."
+          },
+          {
+            "type": "meaning",
+            "prompt": "The conductor says 'Nimage yaavudu stop beku?'. What does he want to know?",
+            "options": [
+              { "text": "Which stop do you need?", "correct": true },
+              { "text": "Did you get off at the wrong stop?", "correct": false },
+              { "text": "Is this your first time on the bus?", "correct": false }
+            ],
+            "explanation": "Nimage = for you / which do you want. Yaavudu = which. Stop = stop. Beku = want/need. He's asking your destination stop — common when you look confused."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'When will the next bus come?'",
+            "options": [
+              { "text": "Munde bus yaavaaga barutte?", "correct": true },
+              { "text": "Bus eshtu barutte?", "correct": false },
+              { "text": "Munde bus elli hoguttide?", "correct": false }
+            ],
+            "explanation": "Munde = next/ahead. Bus = bus. Yaavaaga = when. Barutte = will come. Munde bus yaavaaga barutte? = When will the next bus come? Ask this at any BMTC stop."
+          },
+          {
+            "type": "context",
+            "prompt": "Your stop is coming up. You want to signal to get off.",
+            "options": [
+              { "text": "Illi biDri", "correct": true },
+              { "text": "Illi barri", "correct": false },
+              { "text": "Illi nilli", "correct": false }
+            ],
+            "explanation": "Illi = here. BiDri = let me off / drop here (request for the conductor). Barri = come here. Nilli = stop (for a vehicle). biDri is specifically the phrase for 'let me get off here'."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You missed your stop. Complete: 'Nanna stop ___ aagutte' (My stop has passed / I missed my stop)",
+            "answer": "hinde aagutte",
+            "hint": "hinde = behind/back. hinde aagutte = has gone behind = I've passed it."
+          }
+        ]
+      },
+      {
+        "id": "around-3",
+        "title": "Landmarks & Local Knowledge",
+        "questions": [
+          {
+            "type": "meaning",
+            "prompt": "Someone tells you 'Aa doddada mara hattira tiri'. Where should you turn?",
+            "options": [
+              { "text": "Near the big tree", "correct": true },
+              { "text": "At the big wall", "correct": false },
+              { "text": "Near the large building", "correct": false }
+            ],
+            "explanation": "Aa = that. Doddadu = big/large. Mara = tree. Hattira = near. Tiri = turn. Locals often give directions using trees, shops, and landmarks rather than street names."
+          },
+          {
+            "type": "context",
+            "prompt": "You're trying to describe your house location. A local-sounding description would be:",
+            "options": [
+              { "text": "D-Mart hinde, kempada building-nalli", "correct": true },
+              { "text": "Plot number 47, 3rd cross, 8th main", "correct": false },
+              { "text": "GPS coordinate share maaduttene", "correct": false }
+            ],
+            "explanation": "Hinde = behind. Kempada = red-colored. Building-nalli = in the building. 'Behind D-Mart, in the red building' — this is exactly how locals give addresses. Landmarks over street names always."
+          },
+          {
+            "type": "translate",
+            "prompt": "You want to ask 'Is there an ATM nearby?'",
+            "options": [
+              { "text": "Hattira ATM ide-aa?", "correct": true },
+              { "text": "ATM eshtu dura ide?", "correct": false },
+              { "text": "ATM elli hoguttide?", "correct": false }
+            ],
+            "explanation": "Hattira = nearby/close. ATM = ATM. Ide-aa? = is there? Hattira ATM ide-aa? = Is there an ATM nearby? Works for any shop or facility — just swap 'ATM' for what you need."
+          },
+          {
+            "type": "meaning",
+            "prompt": "Someone says 'Illi ondu roundabout ide, adara nantara balaakke tiri'. What do you do?",
+            "options": [
+              { "text": "There's a roundabout here, turn right after it", "correct": true },
+              { "text": "Turn right at the roundabout", "correct": false },
+              { "text": "Go around the roundabout and go straight", "correct": false }
+            ],
+            "explanation": "Ondu = one. Roundabout ide = there is a roundabout. Adara nantara = after that. Balaakke = right. Tiri = turn. Nantara is an important word meaning 'after that'."
+          },
+          {
+            "type": "context",
+            "prompt": "You're completely lost. The best thing to say to get real help:",
+            "options": [
+              { "text": "Naanu illi hosa, jaaga gottilla — swalpa help maadi", "correct": true },
+              { "text": "Illi manege hogbeku, jaaga nodi", "correct": false },
+              { "text": "Kannada gottilla, English aaguttaa?", "correct": false }
+            ],
+            "explanation": "Naanu illi hosa = I am new here. Jaaga gottilla = I don't know this place. Swalpa help maadi = please help a little. Admitting you're new gets you genuine local help every time."
+          },
+          {
+            "type": "fill-blank",
+            "prompt": "You want to say 'I'll go by walking'. Complete: 'Naanu ___ hoguttene'",
+            "answer": "naadekondu",
+            "hint": "naadekondu = by walking / on foot"
+          }
+        ]
+      }
+    ]
+  }
+]
