@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import QuestionCard from "./QuestionCard";
 import { useProgress } from "@/hooks/useProgress";
@@ -21,10 +22,18 @@ export default function LessonFlow({ unitId, lessonId, questions }: Props) {
   const [answered, setAnswered] = useState(false);
   const [correct, setCorrect] = useState(false);
   const [xpEarned, setXpEarned] = useState(0);
+  const [showAutoIntro, setShowAutoIntro] = useState(unitId === "auto");
 
   const question = questions[current];
   const isLast = current === questions.length - 1;
   const progress = ((current) / questions.length) * 100;
+
+  useEffect(() => {
+    if (unitId !== "auto") return;
+
+    const timeout = window.setTimeout(() => setShowAutoIntro(false), 2600);
+    return () => window.clearTimeout(timeout);
+  }, [unitId]);
 
   const handleAnswer = (wasCorrect: boolean) => {
     setAnswered(true);
@@ -46,6 +55,24 @@ export default function LessonFlow({ unitId, lessonId, questions }: Props) {
 
   return (
     <div className="min-h-screen bg-amber-50 flex flex-col">
+      {showAutoIntro && (
+        <div className="auto-intro fixed inset-0 z-50 flex items-center justify-center bg-amber-50/95 px-6">
+          <div className="flex flex-col items-center gap-4">
+            <Image
+              src="/photos/auto2.webp"
+              alt="Yellow auto rickshaw"
+              width={720}
+              height={668}
+              priority
+              className="auto-intro-image w-full min-w-0 max-w-[78vw] sm:max-w-sm object-contain drop-shadow-2xl"
+            />
+            <p className="auto-intro-caption rounded-full bg-white/90 px-4 py-2 text-sm font-bold text-amber-900 shadow-sm ring-1 ring-amber-200">
+              Meter ready, anna.
+            </p>
+          </div>
+        </div>
+      )}
+
       <div className="w-full bg-gray-200 h-2">
         <div
           className="bg-amber-500 h-2 transition-all duration-500"

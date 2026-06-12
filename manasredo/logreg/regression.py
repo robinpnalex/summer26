@@ -1,5 +1,7 @@
 import numpy as np
 import sklearn
+import matplotlib.pyplot as plt
+
 class logreg:
     
     def __init__(self,weightmatrix,bias,lr,epochs): # constructor
@@ -11,7 +13,7 @@ class logreg:
     def forwardpass(self,testinput):
         return (np.dot(testinput,self.weightmatrix)+self.bias)
 
-    def sigmoid(self,z):
+    def sigmoid(self,z):#logistic part
         return 1/(1+np.exp(-z))
     
     def bceloss(self,predictions,labels):
@@ -25,14 +27,18 @@ class logreg:
         self.weightmatrix = self.weightmatrix - self.lr*dw
         self.bias = self.bias - self.lr*db
 
-    def training(self,X,labels): 
+    def training(self,X,labels,ax): 
         for epoch in range(self.epochs):
+            #plot
+            
             z = self.forwardpass(X)  
             predicted = self.sigmoid(z)
             loss = self.bceloss(predicted,labels)
             print(f"epoch:{epoch}, loss:{loss}")
             #update
             self.backprop(predicted,labels,X)
+            #plot
+            plt.pause(0.01)
 
     def predict(self, input):
         z = self.forwardpass(input)
@@ -70,8 +76,16 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 weights = np.zeros(X_train.shape[1])
 bias = 0
 
+plt.ion()
+fig, ax = plt.subplots()
+ax.scatter(X_train[:,0] ,X_train[:,1],c=y_train,label ="training")
+ax.set_xlabel("Training data")
+ax.set_ylabel("Labels")
+ax.legend()
+plt.show()
+
 model = logreg(weights, bias, lr=0.01, epochs=1000)
-model.training(X_train, y_train)
+model.training(X_train, y_train,ax)
 
 
 predictions = model.predict(X_test)

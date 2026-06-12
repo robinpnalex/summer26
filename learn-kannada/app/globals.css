@@ -24,3 +24,67 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.auto-intro {
+  animation: auto-intro-shell 2.6s ease forwards;
+}
+
+.auto-intro-image {
+  animation: auto-intro-image 2.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.auto-intro-caption {
+  animation: auto-intro-caption 2.6s ease forwards;
+}
+
+@keyframes auto-intro-shell {
+  0%,
+  72% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes auto-intro-image {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.86);
+  }
+  22%,
+  68% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+}
+
+@keyframes auto-intro-caption {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  34%,
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto-intro,
+  .auto-intro-image,
+  .auto-intro-caption {
+    animation-duration: 1ms;
+  }
+}
