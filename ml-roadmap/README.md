@@ -33,7 +33,6 @@ npm install
 npm run dev
 ```
 
-## Deploy
+## URL
 
-Zero-config on Vercel: push to GitHub, import the repo at vercel.com, deploy.
-All module pages are statically generated.
+https://mlfromscratch.vercel.app/
